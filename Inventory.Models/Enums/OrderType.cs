@@ -1,4 +1,4 @@
-﻿namespace Inventory.Utilities
+﻿namespace Inventory.Models.Enums
 {
     public enum OrderType
     {

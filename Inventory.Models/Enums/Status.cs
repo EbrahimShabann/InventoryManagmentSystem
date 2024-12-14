@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inventory.Utilities
+namespace Inventory.Models.Enums
 {
     public enum Status
     {
@@ -12,5 +12,5 @@ namespace Inventory.Utilities
         Defective
     }
 
-    
+
 }

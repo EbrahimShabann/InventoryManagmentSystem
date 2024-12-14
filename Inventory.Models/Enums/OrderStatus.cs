@@ -1,9 +1,9 @@
-﻿namespace Inventory.Utilities
+﻿namespace Inventory.Models.Enums
 {
     public enum OrderStatus
     {
         CheckOut,
-        Paid, 
+        Paid,
         Failed,
         Shipped,
         Deliverd,
