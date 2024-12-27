@@ -13,21 +13,22 @@ using Microsoft.AspNetCore.Hosting;
 using System.Net.Mail;
 using System.Net;
 
+
 namespace Inventory.Utilities
 {
-    public class DbInitializer :IDbInitializer
+    public class DbInitializer :IDbInitializer 
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<IdentityUser> _userManager;
+      //  private readonly RoleManager<IdentityRole> _roleManager;
         private  SuperAdmin _superAdmin;
         private ApplicationDbContext _context;
         private IRoleInventory _roleInventory;
 
-        public DbInitializer(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, 
+        public DbInitializer(UserManager<IdentityUser> userManager, /*RoleManager<IdentityRole> roleManager*/
             IOptions<SuperAdmin> superAdmin, ApplicationDbContext context, IRoleInventory roleInventory)
         {
             _userManager = userManager;
-            _roleManager = roleManager;
+            //_roleManager = roleManager;
             _superAdmin = superAdmin.Value;
             _context = context;
             _roleInventory = roleInventory;
@@ -36,8 +37,8 @@ namespace Inventory.Utilities
         public async Task CreateSuperAdmin()
         {
             ApplicationUser user =new ApplicationUser ();
-            user.Email = "";
-            user.UserName = "";
+            user.Email = _superAdmin.Email;
+            user.UserName = "Ebrahim Shaban";
             user.EmailConfirmed = true;
             var response = await _userManager.CreateAsync(user,_superAdmin.Password);
             if (response.Succeeded) { 

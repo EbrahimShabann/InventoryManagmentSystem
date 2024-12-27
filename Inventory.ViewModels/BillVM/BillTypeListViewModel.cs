@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inventory.ViewModels.Customer
+namespace Inventory.ViewModels.BillVM
 {
-    public class CustomerTypeListViewModel
+    public class BillTypeListViewModel
     {
-        public int CustomerTypeId { get; set; }
+        public int BillTypeId { get; set; }
         [Required]
-        public string CustomerTypeName { get; set; }
+        public string BillTypeName { get; set; }
         public string Description { get; set; }
     }
 }

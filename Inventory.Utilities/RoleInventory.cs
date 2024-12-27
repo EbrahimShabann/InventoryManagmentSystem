@@ -10,10 +10,10 @@ namespace Inventory.Utilities
 {
     public class RoleInventory : IRoleInventory
     {
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<IdentityUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public RoleInventory(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public RoleInventory(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;

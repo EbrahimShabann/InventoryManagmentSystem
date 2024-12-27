@@ -1,0 +1,61 @@
+﻿@model Inventory.ViewModels.BillVM.BillViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<h4>Updating Bill</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BillId" />
+            <div class="form-group">
+                <label asp-for="BillName" class="control-label"></label>
+                <input asp-for="BillName" class="form-control" />
+                <span asp-validation-for="BillName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GoodsReceivedNoteId" class="control-label"></label>
+                <input asp-for="GoodsReceivedNoteId" class="form-control" />
+                <span asp-validation-for="GoodsReceivedNoteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VendorDoNumber" class="control-label"></label>
+                <input asp-for="VendorDoNumber" class="form-control" />
+                <span asp-validation-for="VendorDoNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VendorInvoiceNumber" class="control-label"></label>
+                <input asp-for="VendorInvoiceNumber" class="form-control" />
+                <span asp-validation-for="VendorInvoiceNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BillDate" class="control-label"></label>
+                <input asp-for="BillDate" class="form-control" />
+                <span asp-validation-for="BillDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BillDueDate" class="control-label"></label>
+                <input asp-for="BillDueDate" class="form-control" />
+                <span asp-validation-for="BillDueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BillTypeId" class="control-label"></label>
+                <input asp-for="BillTypeId" class="form-control" />
+                <span asp-validation-for="BillTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
