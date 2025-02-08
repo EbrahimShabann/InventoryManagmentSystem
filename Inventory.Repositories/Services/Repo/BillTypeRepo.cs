@@ -1,14 +1,4 @@
-﻿using Inventory.Models;
-using Inventory.Repositories.Paging;
-using Inventory.Repositories.Services.IRepo;
-using Inventory.ViewModels.BillVM;
-using Inventory.ViewModels.Mapping;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 
 namespace Inventory.Repositories.Services.Repo
 {
@@ -16,15 +6,17 @@ namespace Inventory.Repositories.Services.Repo
     {
 
         private ApplicationDbContext _context;
-
-        public BillTypeRepo(ApplicationDbContext context)
+        private readonly IMapper _mapper;
+        public BillTypeRepo(ApplicationDbContext context,IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
+
         }
 
         public void Add(CreateBillTypeViewModel model)
         {
-            var billType = model.VMtoModel();
+            var billType = _mapper.Map<BillType>(model);
             _context.BillTypes.Add(billType);
             _context.SaveChanges();
         }
@@ -44,7 +36,7 @@ namespace Inventory.Repositories.Services.Repo
         public PaginatedList<BillTypeListViewModel> GetAll(int pageNumber, int pageSize)
         {
             var BillTypeList = _context.BillTypes.ToList();
-            var vm = BillTypeList.ModelToVM().AsQueryable();
+            var vm = _mapper.Map<List<BillTypeListViewModel>>(BillTypeList).AsQueryable();
             return PaginatedList<BillTypeListViewModel>.Create(vm, pageNumber, pageSize);
 
         }
@@ -52,7 +44,7 @@ namespace Inventory.Repositories.Services.Repo
         public BillTypeViewModel GetById(int id)
         {
             var billType = _context.BillTypes.FirstOrDefault(b => b.BillTypeId == id);
-            var vm = new BillTypeViewModel(billType);
+            var vm = _mapper.Map<BillTypeViewModel>(billType);
 
             return vm;
         }

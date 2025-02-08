@@ -1,19 +1,14 @@
-﻿using Inventory.Repositories.Services.IRepo;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 
 namespace Inventory.Repositories.Services.Repo
 {
-    public class UnitOfWork(ApplicationDbContext db) : IUnitOfWork
+    public class UnitOfWork(ApplicationDbContext db, IMapper mapper) : IUnitOfWork
     {
-       private ApplicationDbContext _db = db;
+        private ApplicationDbContext _db = db;
 
-        public IBillRepo billRepo { get; private set; } = new BillRepo(db);
+        public IBillRepo billRepo { get; private set; } = new BillRepo(db,mapper);
 
-        public IBillTypeRepo billTypeRepo { get; private set; } = new BillTypeRepo(db);
+        public IBillTypeRepo billTypeRepo { get; private set; } = new BillTypeRepo(db,mapper);
 
         public ICustomerRepo customerRepo { get; private set; } = new CustomerRepo(db);
 
@@ -22,6 +17,8 @@ namespace Inventory.Repositories.Services.Repo
         public IProductRepo productRepo { get; private set; } = new ProductRepo(db);
 
         public IProductTypeRepo productTypeRepo { get; private set; } = new ProductTypeRepo(db);
+        public IVendorTypeRepo vendorTypeRepo { get; private set; } = new VendorTypeRepo(db,mapper);
+        public ISalesTypeRepo salesTypeRepo { get; private set; } = new SalesTypeRepo(db,mapper);
 
         public void save()
         {

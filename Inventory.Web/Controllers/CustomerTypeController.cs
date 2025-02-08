@@ -1,10 +1,4 @@
-﻿using Inventory.Repositories.Services.IRepo;
-using Inventory.ViewModels.CustomerVM;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.Reflection.Metadata.Ecma335;
-
-namespace Inventory.Web.Controllers
+﻿namespace Inventory.Web.Controllers
 {
     public class CustomerTypeController : Controller
     {

@@ -7,6 +7,7 @@ using Inventory.Repositories.Services.IRepo;
 using Inventory.Repositories.Services.Repo;
 using Inventory.Utilities;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Inventory.ViewModels.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,7 @@ builder.Services.AddScoped<IEmailSender, EmailSender>();
 //builder.Services.AddScoped<IRoleInventory, RoleInventory>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 builder.Services.Configure<SuperAdmin>(builder.Configuration.GetSection("SuperAdmin"));
 var app = builder.Build();
 

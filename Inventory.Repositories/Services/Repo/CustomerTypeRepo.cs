@@ -1,16 +1,4 @@
-﻿using Inventory.Models;
-using Inventory.Repositories.Paging;
-using Inventory.Repositories.Services.IRepo;
-using Inventory.ViewModels.BillVM;
-using Inventory.ViewModels.CustomerVM;
-using Inventory.ViewModels.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Inventory.Repositories.Services.Repo
+﻿namespace Inventory.Repositories.Services.Repo
 {
     public class CustomerTypeRepo : ICustomerTypeRepo
     {

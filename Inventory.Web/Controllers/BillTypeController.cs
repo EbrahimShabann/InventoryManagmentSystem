@@ -1,8 +1,4 @@
-﻿using Inventory.Repositories.Services.IRepo;
-using Inventory.ViewModels.BillVM;
-using Microsoft.AspNetCore.Mvc;
-
-namespace Inventory.Web.Controllers
+﻿namespace Inventory.Web.Controllers
 {
     public class BillTypeController : Controller
     {

@@ -1,17 +1,9 @@
-﻿using Inventory.Models;
-using Inventory.ViewModels.BillVM;
-using Inventory.ViewModels.CustomerVM;
-using Inventory.ViewModels.ProductVM;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Inventory.ViewModels.Mapping
+﻿namespace Inventory.ViewModels.Mapping
 {
     public static class Relationship
     {
+        
+
         public static IEnumerable<CustomerTypeListViewModel> ModelToVM(this IEnumerable<CustomerType> customerTypes)
         {
             List<CustomerTypeListViewModel> list = new List<CustomerTypeListViewModel> ();
@@ -48,40 +40,9 @@ namespace Inventory.ViewModels.Mapping
             }
             return list;
         }
-        public static IEnumerable<BillTypeListViewModel> ModelToVM(this IEnumerable<BillType> BillTypes)
-        {
-            List<BillTypeListViewModel> list = new List<BillTypeListViewModel>();
-            foreach (var bt in BillTypes)
-            {
-                list.Add(new BillTypeListViewModel()
-                {
-                    BillTypeId = bt.BillTypeId,
-                     BillTypeName = bt.BillTypeName,
-                    Description = bt.Description
-                });
-            }
-            return list;
-        }
-        public static IEnumerable<BillListViewModel> ModelToVM(this IEnumerable<Bill> Bills)
-        {
-            List<BillListViewModel> list = new List<BillListViewModel>();
-            foreach (var bt in Bills)
-            {
-                list.Add(new BillListViewModel()
-                {
-                    BillId=bt.BillId,
-                    BillTypeId=bt.BillTypeId,
-                    BillDate=bt.BillDate,
-                    BillDueDate = bt.BillDueDate,
-                    BillName = bt.BillName,
-                    GoodsReceivedNoteId=bt.GoodsReceivedNoteId,
-                     VendorDoNumber = bt.VendorDoNumber,
-                      VendorInvoiceNumber = bt.VendorInvoiceNumber
-                     
-                });
-            }
-            return list;
-        }
+       
+        
+        
         public static IEnumerable<ProductTypeListViewModel> ModelToVM(this IEnumerable<ProductType> ProductTypes)
         {
             List<ProductTypeListViewModel> list = new List<ProductTypeListViewModel>();

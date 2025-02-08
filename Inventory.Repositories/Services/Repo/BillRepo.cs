@@ -1,13 +1,4 @@
-﻿
-using Inventory.Repositories.Paging;
-using Inventory.Repositories.Services.IRepo;
-using Inventory.ViewModels.BillVM;
-using Inventory.ViewModels.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 
 namespace Inventory.Repositories.Services.Repo
 {
@@ -15,21 +6,25 @@ namespace Inventory.Repositories.Services.Repo
     {
 
         private ApplicationDbContext _context;
+        private readonly IMapper _mapper;
 
-        public BillRepo(ApplicationDbContext context)
+       
+
+        public BillRepo(ApplicationDbContext context,IMapper mapper )
         {
             _context = context;
+            _mapper = mapper;
         }
         public PaginatedList<BillListViewModel> GetAll(int pageNumber, int pageSize)
         {
             var BillList = _context.Bills;
-            var vm = BillList.ModelToVM().AsQueryable();
+            var vm = _mapper.Map<IEnumerable<BillListViewModel>>(BillList).AsQueryable();
             return PaginatedList<BillListViewModel>.Create(vm, pageNumber, pageSize);
 
         }
         public void Add(CreateBillViewModel model)
         {
-            var bill = model.VMtoModel();
+            var bill = _mapper.Map<Bill>(model);
             _context.Bills.Add(bill);
             _context.SaveChanges();
         }
@@ -48,7 +43,7 @@ namespace Inventory.Repositories.Services.Repo
         public BillViewModel GetById(int id)
         {
             var bill = _context.Bills.FirstOrDefault(b => b.BillId == id);
-            var vm = new BillViewModel(bill);
+            var vm =_mapper.Map<BillViewModel>(bill);
 
             return vm;
         }

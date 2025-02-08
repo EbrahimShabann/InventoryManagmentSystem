@@ -1,12 +1,4 @@
-﻿using Inventory.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Inventory.ViewModels.BillVM
+﻿namespace Inventory.ViewModels.BillVM
 {
     public class CreateBillViewModel
     {
@@ -30,20 +22,6 @@ namespace Inventory.ViewModels.BillVM
         public DateTimeOffset BillDueDate { get; set; }
         public int BillTypeId { get; set; }
 
-        public Bill VMtoModel()
-        {
-            return new Bill
-            {
-                BillId = BillId,
-                BillDate = BillDate,
-                BillDueDate = BillDueDate,
-                BillName = BillName,
-                BillTypeId = BillTypeId,
-                GoodsReceivedNoteId = GoodsReceivedNoteId,
-                VendorDoNumber = VendorDoNumber,
-                VendorInvoiceNumber = VendorInvoiceNumber
-
-            };
-        }
+        
     }
 }

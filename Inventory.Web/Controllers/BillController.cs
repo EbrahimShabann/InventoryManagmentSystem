@@ -1,8 +1,4 @@
-﻿using Inventory.Repositories.Services.IRepo;
-using Inventory.ViewModels.BillVM;
-using Microsoft.AspNetCore.Mvc;
-
-namespace Inventory.Web.Controllers
+﻿namespace Inventory.Web.Controllers
 {
     public class BillController : Controller
     {
@@ -13,6 +9,7 @@ namespace Inventory.Web.Controllers
             _uof = uof;
         }
 
+        //[HttpGet]
         public IActionResult Index(int pageNumber= 1 ,int pageSize= 10)
         {
             var bills = _uof.billRepo.GetAll(pageNumber, pageSize);

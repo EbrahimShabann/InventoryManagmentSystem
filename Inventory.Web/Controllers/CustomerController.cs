@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace Inventory.Web.Controllers
+﻿namespace Inventory.Web.Controllers
 {
     public class CustomerController : Controller
     {
