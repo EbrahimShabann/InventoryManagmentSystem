@@ -19,7 +19,7 @@ namespace Inventory.Repositories.Services.Repo
         public IProductTypeRepo productTypeRepo { get; private set; } = new ProductTypeRepo(db);
         public IVendorTypeRepo vendorTypeRepo { get; private set; } = new VendorTypeRepo(db,mapper);
         public ISalesTypeRepo salesTypeRepo { get; private set; } = new SalesTypeRepo(db,mapper);
-
+        public IVendorRepo vendorRepo { get; private set; } = new VendorRepo(db, mapper);
         public void save()
         {
             _db.SaveChanges();

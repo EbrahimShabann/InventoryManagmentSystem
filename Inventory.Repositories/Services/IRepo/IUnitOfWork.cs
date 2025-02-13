@@ -10,6 +10,7 @@
         public IProductTypeRepo productTypeRepo { get; }
         public IVendorTypeRepo vendorTypeRepo { get; }
         public ISalesTypeRepo salesTypeRepo { get; }
+        public IVendorRepo vendorRepo { get; }
         void save();
     }
 }

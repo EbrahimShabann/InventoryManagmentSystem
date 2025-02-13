@@ -22,6 +22,9 @@ namespace Inventory.ViewModels.Mapping
             CreateMap<SalesType, SalesTypeListViewModel>();
             CreateMap<SalesType, SalesTypeViewModel>();
             CreateMap<CreateSalesTypeViewModel, SalesType>();
+            CreateMap<Vendor, VendorListViewModel>();
+            CreateMap<CreateVendorViewModel, Vendor>();
+            CreateMap<Vendor,VendorViewModel>();
         }
 
     }
